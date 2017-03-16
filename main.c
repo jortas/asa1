@@ -5,7 +5,10 @@ int main(int argc, char const *argv[])
 	graphS* graph = initializeGraph(readNumNodes());
 	readGraph(graph);
 	queueS *nodesQueue = createQueue();
-	int testNode,v;
+	int testNode,v, testError;
+	int insufficientError = 0;
+	int incoerenteError = 0;
+
 	listNodeS *nodeEdge;
 
 
@@ -15,15 +18,28 @@ int main(int argc, char const *argv[])
 	}
 	while (nodesQueue->head!=NULL){
 		testNode = dequeue(nodesQueue);
+		testError = -1;
 		for(nodeEdge = graph->nodesEdges[testNode]->next; nodeEdge != NULL; nodeEdge=nodeEdge->next){
 			deleteEntryArch(graph->entrysNodes, nodeEdge->node);
 			if (testEntryArch(graph->entrysNodes, nodeEdge->node)){
+				testError++;
 				enqueue(nodesQueue, nodeEdge->node);
 			}
 		}
+		if (testError == 1){
+			insufficientError = 1;
+		}
+		else if(testError == -1)
+			incoerenteError = 1;
 		enqueue(graph->path, testNode);
 	}
-	printPath(graph->path);
+
+	if (incoerenteError)
+		printError("Incoerente");
+	else if(insufficientError)
+		printError("Insuficiente");
+	else
+		printPath(graph->path);
 
 
 	return 0;

@@ -17,3 +17,4 @@ void deleteEntryArch(int *entrysNodes, int toNode);
 int readNumNodes();
 void readGraph(graphS* graph);
 void printPath(queueS* path);
+void printError(char *error);

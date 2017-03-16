@@ -67,3 +67,6 @@ void printPath(queueS* path){
 	}
 }
 
+void printError(char *error){
+	printf("%s\n", error);
+}
