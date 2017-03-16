@@ -3,12 +3,12 @@
 
 typedef struct listNodeS {
   	int node;
-  	listNodeS *next;
+  	struct listNodeS *next;
 }listNodeS;
 
 typedef struct queueS{
-	listNodeS* head;
-	listNodeS* tail;
+	struct listNodeS* head;
+	struct listNodeS* tail;
 }queueS;
 
 

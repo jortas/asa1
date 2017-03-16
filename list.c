@@ -42,5 +42,3 @@ int dequeue(queueS* queue){
 	free(aux);
 	return node;
 }
-
-/*retira um no de uma lsita tendo em conta o elemento anterior*/
