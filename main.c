@@ -20,7 +20,7 @@ int main(int argc, char const *argv[])
 		}
 	}
 
-	while (nodesQueue->head!=NULL && insufficientError != 1){
+	while (nodesQueue->head!=NULL){
 		testNode = dequeue(nodesQueue);
 		enqueue(graph->path, testNode);
 		nodesDiscovered++;
@@ -45,13 +45,14 @@ int main(int argc, char const *argv[])
 		}
 	}
 	
+
 	if (nodesDiscovered < graph->numNodes)
 		printError("Incoerente");
-	else if(insufficientError)
+	else if(insufficientError == 1)
 		printError("Insuficiente");
-	else
+	/*else
 		printPath(graph->path);
-
+	*/
 
 	return 0;
 }
