@@ -1,4 +1,4 @@
-CFLAGS=-g #-O3 -ansi -Wall
+CFLAGS=-O3 -ansi -Wall
 LDFLAGS=-lm
 CC=gcc
 

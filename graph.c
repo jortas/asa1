@@ -2,9 +2,10 @@
 
 graphS* initializeGraph(int numNodes){
 	int i;
+
 	graphS* graph = (graphS*) malloc(sizeof(graphS));
 	graph->numNodes=numNodes;
-	graph->entrysNodes = (int*) malloc(numNodes * sizeof(int));
+	graph->entrysNodes = (int*) malloc((numNodes+1) * sizeof(int));
 	for (i = 0; i <= numNodes; i++){
 		graph->entrysNodes[i] = 0;
 	}
